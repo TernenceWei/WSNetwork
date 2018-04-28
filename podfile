@@ -1,0 +1,5 @@
+target "WSNetworking" do
+
+pod 'AFNetworking'
+
+end

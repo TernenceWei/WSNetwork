@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB67CCB42094777300EB4AA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCB32094777300EB4AA5 /* AppDelegate.m */; };
+		AB67CCB72094777300EB4AA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCB62094777300EB4AA5 /* ViewController.m */; };
+		AB67CCBA2094777300EB4AA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB67CCB82094777300EB4AA5 /* Main.storyboard */; };
+		AB67CCBC2094777400EB4AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB67CCBB2094777400EB4AA5 /* Assets.xcassets */; };
+		AB67CCBF2094777400EB4AA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB67CCBD2094777400EB4AA5 /* LaunchScreen.storyboard */; };
+		AB67CCC22094777400EB4AA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCC12094777400EB4AA5 /* main.m */; };
+		AB67CCCC2094777400EB4AA5 /* WSNetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCCB2094777400EB4AA5 /* WSNetworkingTests.m */; };
+		AB67CCD72094777400EB4AA5 /* WSNetworkingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCD62094777400EB4AA5 /* WSNetworkingUITests.m */; };
+		FCBFF159FC15ACD02B3AA29D /* libPods-WSNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBF71D95D98A48B27118D6F /* libPods-WSNetworking.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB67CCC82094777400EB4AA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB67CCA72094777300EB4AA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB67CCAE2094777300EB4AA5;
+			remoteInfo = WSNetworking;
+		};
+		AB67CCD32094777400EB4AA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB67CCA72094777300EB4AA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB67CCAE2094777300EB4AA5;
+			remoteInfo = WSNetworking;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4CBF71D95D98A48B27118D6F /* libPods-WSNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WSNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67CCAF2094777300EB4AA5 /* WSNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67CCB22094777300EB4AA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AB67CCB32094777300EB4AA5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AB67CCB52094777300EB4AA5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AB67CCB62094777300EB4AA5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AB67CCB92094777300EB4AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB67CCBB2094777400EB4AA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB67CCBE2094777400EB4AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB67CCC02094777400EB4AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB67CCC12094777400EB4AA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB67CCC72094777400EB4AA5 /* WSNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WSNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67CCCB2094777400EB4AA5 /* WSNetworkingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSNetworkingTests.m; sourceTree = "<group>"; };
+		AB67CCCD2094777400EB4AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB67CCD22094777400EB4AA5 /* WSNetworkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WSNetworkingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67CCD62094777400EB4AA5 /* WSNetworkingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSNetworkingUITests.m; sourceTree = "<group>"; };
+		AB67CCD82094777400EB4AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB0BB9C3B7488B982B350CB3 /* Pods-WSNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WSNetworking/Pods-WSNetworking.debug.xcconfig"; sourceTree = "<group>"; };
+		E7B17DCA829DAB5ACEC8AC00 /* Pods-WSNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-WSNetworking/Pods-WSNetworking.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB67CCAC2094777300EB4AA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCBFF159FC15ACD02B3AA29D /* libPods-WSNetworking.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB67CCC42094777400EB4AA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB67CCCF2094777400EB4AA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB67CCA62094777300EB4AA5 = {
+			isa = PBXGroup;
+			children = (
+				AB67CCB12094777300EB4AA5 /* WSNetworking */,
+				AB67CCCA2094777400EB4AA5 /* WSNetworkingTests */,
+				AB67CCD52094777400EB4AA5 /* WSNetworkingUITests */,
+				AB67CCB02094777300EB4AA5 /* Products */,
+				B0E2099F6E3B8B820371A097 /* Pods */,
+				B99964952FA10A00845C1D0A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AB67CCB02094777300EB4AA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB67CCAF2094777300EB4AA5 /* WSNetworking.app */,
+				AB67CCC72094777400EB4AA5 /* WSNetworkingTests.xctest */,
+				AB67CCD22094777400EB4AA5 /* WSNetworkingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB67CCB12094777300EB4AA5 /* WSNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				AB67CCB22094777300EB4AA5 /* AppDelegate.h */,
+				AB67CCB32094777300EB4AA5 /* AppDelegate.m */,
+				AB67CCB52094777300EB4AA5 /* ViewController.h */,
+				AB67CCB62094777300EB4AA5 /* ViewController.m */,
+				AB67CCB82094777300EB4AA5 /* Main.storyboard */,
+				AB67CCBB2094777400EB4AA5 /* Assets.xcassets */,
+				AB67CCBD2094777400EB4AA5 /* LaunchScreen.storyboard */,
+				AB67CCC02094777400EB4AA5 /* Info.plist */,
+				AB67CCC12094777400EB4AA5 /* main.m */,
+			);
+			path = WSNetworking;
+			sourceTree = "<group>";
+		};
+		AB67CCCA2094777400EB4AA5 /* WSNetworkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB67CCCB2094777400EB4AA5 /* WSNetworkingTests.m */,
+				AB67CCCD2094777400EB4AA5 /* Info.plist */,
+			);
+			path = WSNetworkingTests;
+			sourceTree = "<group>";
+		};
+		AB67CCD52094777400EB4AA5 /* WSNetworkingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AB67CCD62094777400EB4AA5 /* WSNetworkingUITests.m */,
+				AB67CCD82094777400EB4AA5 /* Info.plist */,
+			);
+			path = WSNetworkingUITests;
+			sourceTree = "<group>";
+		};
+		B0E2099F6E3B8B820371A097 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB0BB9C3B7488B982B350CB3 /* Pods-WSNetworking.debug.xcconfig */,
+				E7B17DCA829DAB5ACEC8AC00 /* Pods-WSNetworking.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B99964952FA10A00845C1D0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CBF71D95D98A48B27118D6F /* libPods-WSNetworking.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB67CCAE2094777300EB4AA5 /* WSNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB67CCDB2094777400EB4AA5 /* Build configuration list for PBXNativeTarget "WSNetworking" */;
+			buildPhases = (
+				BCC743C95DFD8334C88EEEBD /* [CP] Check Pods Manifest.lock */,
+				AB67CCAB2094777300EB4AA5 /* Sources */,
+				AB67CCAC2094777300EB4AA5 /* Frameworks */,
+				AB67CCAD2094777300EB4AA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WSNetworking;
+			productName = WSNetworking;
+			productReference = AB67CCAF2094777300EB4AA5 /* WSNetworking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB67CCC62094777400EB4AA5 /* WSNetworkingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB67CCDE2094777400EB4AA5 /* Build configuration list for PBXNativeTarget "WSNetworkingTests" */;
+			buildPhases = (
+				AB67CCC32094777400EB4AA5 /* Sources */,
+				AB67CCC42094777400EB4AA5 /* Frameworks */,
+				AB67CCC52094777400EB4AA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB67CCC92094777400EB4AA5 /* PBXTargetDependency */,
+			);
+			name = WSNetworkingTests;
+			productName = WSNetworkingTests;
+			productReference = AB67CCC72094777400EB4AA5 /* WSNetworkingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AB67CCD12094777400EB4AA5 /* WSNetworkingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB67CCE12094777400EB4AA5 /* Build configuration list for PBXNativeTarget "WSNetworkingUITests" */;
+			buildPhases = (
+				AB67CCCE2094777400EB4AA5 /* Sources */,
+				AB67CCCF2094777400EB4AA5 /* Frameworks */,
+				AB67CCD02094777400EB4AA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB67CCD42094777400EB4AA5 /* PBXTargetDependency */,
+			);
+			name = WSNetworkingUITests;
+			productName = WSNetworkingUITests;
+			productReference = AB67CCD22094777400EB4AA5 /* WSNetworkingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB67CCA72094777300EB4AA5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = yyhj;
+				TargetAttributes = {
+					AB67CCAE2094777300EB4AA5 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					AB67CCC62094777400EB4AA5 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = AB67CCAE2094777300EB4AA5;
+					};
+					AB67CCD12094777400EB4AA5 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = AB67CCAE2094777300EB4AA5;
+					};
+				};
+			};
+			buildConfigurationList = AB67CCAA2094777300EB4AA5 /* Build configuration list for PBXProject "WSNetworking" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB67CCA62094777300EB4AA5;
+			productRefGroup = AB67CCB02094777300EB4AA5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB67CCAE2094777300EB4AA5 /* WSNetworking */,
+				AB67CCC62094777400EB4AA5 /* WSNetworkingTests */,
+				AB67CCD12094777400EB4AA5 /* WSNetworkingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB67CCAD2094777300EB4AA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB67CCBF2094777400EB4AA5 /* LaunchScreen.storyboard in Resources */,
+				AB67CCBC2094777400EB4AA5 /* Assets.xcassets in Resources */,
+				AB67CCBA2094777300EB4AA5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB67CCC52094777400EB4AA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB67CCD02094777400EB4AA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BCC743C95DFD8334C88EEEBD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WSNetworking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB67CCAB2094777300EB4AA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB67CCB72094777300EB4AA5 /* ViewController.m in Sources */,
+				AB67CCC22094777400EB4AA5 /* main.m in Sources */,
+				AB67CCB42094777300EB4AA5 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB67CCC32094777400EB4AA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB67CCCC2094777400EB4AA5 /* WSNetworkingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB67CCCE2094777400EB4AA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB67CCD72094777400EB4AA5 /* WSNetworkingUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB67CCC92094777400EB4AA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB67CCAE2094777300EB4AA5 /* WSNetworking */;
+			targetProxy = AB67CCC82094777400EB4AA5 /* PBXContainerItemProxy */;
+		};
+		AB67CCD42094777400EB4AA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB67CCAE2094777300EB4AA5 /* WSNetworking */;
+			targetProxy = AB67CCD32094777400EB4AA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB67CCB82094777300EB4AA5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB67CCB92094777300EB4AA5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB67CCBD2094777400EB4AA5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB67CCBE2094777400EB4AA5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB67CCD92094777400EB4AA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AB67CCDA2094777400EB4AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB67CCDC2094777400EB4AA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB0BB9C3B7488B982B350CB3 /* Pods-WSNetworking.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVN88VVPCP;
+				INFOPLIST_FILE = WSNetworking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhj.WSNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB67CCDD2094777400EB4AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7B17DCA829DAB5ACEC8AC00 /* Pods-WSNetworking.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVN88VVPCP;
+				INFOPLIST_FILE = WSNetworking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhj.WSNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AB67CCDF2094777400EB4AA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVN88VVPCP;
+				INFOPLIST_FILE = WSNetworkingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhj.WSNetworkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WSNetworking.app/WSNetworking";
+			};
+			name = Debug;
+		};
+		AB67CCE02094777400EB4AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVN88VVPCP;
+				INFOPLIST_FILE = WSNetworkingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhj.WSNetworkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WSNetworking.app/WSNetworking";
+			};
+			name = Release;
+		};
+		AB67CCE22094777400EB4AA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVN88VVPCP;
+				INFOPLIST_FILE = WSNetworkingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhj.WSNetworkingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WSNetworking;
+			};
+			name = Debug;
+		};
+		AB67CCE32094777400EB4AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVN88VVPCP;
+				INFOPLIST_FILE = WSNetworkingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhj.WSNetworkingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WSNetworking;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB67CCAA2094777300EB4AA5 /* Build configuration list for PBXProject "WSNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB67CCD92094777400EB4AA5 /* Debug */,
+				AB67CCDA2094777400EB4AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB67CCDB2094777400EB4AA5 /* Build configuration list for PBXNativeTarget "WSNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB67CCDC2094777400EB4AA5 /* Debug */,
+				AB67CCDD2094777400EB4AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB67CCDE2094777400EB4AA5 /* Build configuration list for PBXNativeTarget "WSNetworkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB67CCDF2094777400EB4AA5 /* Debug */,
+				AB67CCE02094777400EB4AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB67CCE12094777400EB4AA5 /* Build configuration list for PBXNativeTarget "WSNetworkingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB67CCE22094777400EB4AA5 /* Debug */,
+				AB67CCE32094777400EB4AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB67CCA72094777300EB4AA5 /* Project object */;
+}
