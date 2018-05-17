@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB54A30020AD77EF00B9D0C5 /* WSNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54A2FF20AD77EF00B9D0C5 /* WSNetworking.m */; };
 		AB67CCB42094777300EB4AA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCB32094777300EB4AA5 /* AppDelegate.m */; };
 		AB67CCB72094777300EB4AA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCB62094777300EB4AA5 /* ViewController.m */; };
 		AB67CCBA2094777300EB4AA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB67CCB82094777300EB4AA5 /* Main.storyboard */; };
@@ -15,7 +16,6 @@
 		AB67CCC22094777400EB4AA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCC12094777400EB4AA5 /* main.m */; };
 		AB67CCCC2094777400EB4AA5 /* WSNetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCCB2094777400EB4AA5 /* WSNetworkingTests.m */; };
 		AB67CCD72094777400EB4AA5 /* WSNetworkingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCD62094777400EB4AA5 /* WSNetworkingUITests.m */; };
-		AB67CCE7209478C600EB4AA5 /* WSNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67CCE6209478C600EB4AA5 /* WSNetworking.m */; };
 		FCBFF159FC15ACD02B3AA29D /* libPods-WSNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBF71D95D98A48B27118D6F /* libPods-WSNetworking.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		4CBF71D95D98A48B27118D6F /* libPods-WSNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WSNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB54A2FE20AD77EF00B9D0C5 /* WSNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSNetworking.h; sourceTree = "<group>"; };
+		AB54A2FF20AD77EF00B9D0C5 /* WSNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSNetworking.m; sourceTree = "<group>"; };
 		AB67CCAF2094777300EB4AA5 /* WSNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB67CCB22094777300EB4AA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AB67CCB32094777300EB4AA5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,8 +56,6 @@
 		AB67CCD22094777400EB4AA5 /* WSNetworkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WSNetworkingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB67CCD62094777400EB4AA5 /* WSNetworkingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSNetworkingUITests.m; sourceTree = "<group>"; };
 		AB67CCD82094777400EB4AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB67CCE5209478C600EB4AA5 /* WSNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSNetworking.h; sourceTree = "<group>"; };
-		AB67CCE6209478C600EB4AA5 /* WSNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSNetworking.m; sourceTree = "<group>"; };
 		CB0BB9C3B7488B982B350CB3 /* Pods-WSNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WSNetworking/Pods-WSNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		E7B17DCA829DAB5ACEC8AC00 /* Pods-WSNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-WSNetworking/Pods-WSNetworking.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB54A2FD20AD77EF00B9D0C5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AB54A2FE20AD77EF00B9D0C5 /* WSNetworking.h */,
+				AB54A2FF20AD77EF00B9D0C5 /* WSNetworking.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		AB67CCA62094777300EB4AA5 = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +120,7 @@
 		AB67CCB12094777300EB4AA5 /* WSNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				AB67CCE4209478A700EB4AA5 /* WSNetworking */,
+				AB54A2FD20AD77EF00B9D0C5 /* Tool */,
 				AB67CCB22094777300EB4AA5 /* AppDelegate.h */,
 				AB67CCB32094777300EB4AA5 /* AppDelegate.m */,
 				AB67CCB52094777300EB4AA5 /* ViewController.h */,
@@ -141,15 +150,6 @@
 				AB67CCD82094777400EB4AA5 /* Info.plist */,
 			);
 			path = WSNetworkingUITests;
-			sourceTree = "<group>";
-		};
-		AB67CCE4209478A700EB4AA5 /* WSNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				AB67CCE5209478C600EB4AA5 /* WSNetworking.h */,
-				AB67CCE6209478C600EB4AA5 /* WSNetworking.m */,
-			);
-			path = WSNetworking;
 			sourceTree = "<group>";
 		};
 		B0E2099F6E3B8B820371A097 /* Pods */ = {
@@ -324,7 +324,7 @@
 				AB67CCB72094777300EB4AA5 /* ViewController.m in Sources */,
 				AB67CCC22094777400EB4AA5 /* main.m in Sources */,
 				AB67CCB42094777300EB4AA5 /* AppDelegate.m in Sources */,
-				AB67CCE7209478C600EB4AA5 /* WSNetworking.m in Sources */,
+				AB54A30020AD77EF00B9D0C5 /* WSNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
