@@ -7,7 +7,7 @@
 //
 
 #import "WSNetworking.h"
-#import <AFNetworking.h>
+#import <AFNetworking/AFNetworking.h>
 
 #define WS(self)  __weak __typeof(&*self)self = self
 
