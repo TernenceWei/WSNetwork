@@ -35,211 +35,194 @@
     return sharedInstance;
 }
 
-+ (NSURLSessionDataTask *)requestWithRequestType:(WSRequestType)requestType
-                                             url:(NSString *)url
-                                          params:(NSDictionary *)params
-                                         success:(void (^)(id))success
-                                         failure:(void (^)(NSError *))failure
+- (NSURLSessionTask *)requestWithRequestType:(WSRequestType)requestType
+                                         url:(NSString *)url
+                                      params:(NSDictionary *)params
+                                     success:(WSResponseSuccess)success
+                                     failure:(WSResponseFailure)failure
 {
-    return [self requestWithRequestType:requestType url:url params:params success:success failure:failure];
-}
-
-- (NSURLSessionDataTask *)requestWithRequestType:(WSRequestType)requestType
-                                             url:(NSString *)url
-                                          params:(NSDictionary *)params
-                                         success:(void (^)(id))success
-                                         failure:(void (^)(NSError *))failure
-{
-    __block NSURLSessionDataTask *task = nil;
+    NSURLSessionTask *task = nil;
     AFHTTPSessionManager *manager = [[WSNetworking sharedInstance] manager];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        switch (requestType) {
-                
-            case WSRequestTypeGet:{
-                
-                task = [manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    
-                    [self responseSuccess:success object:responseObject task:task];
-                    
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    
-                    [self responseFailure:failure error:error task:task];
-                }];
-                break;
-            }
-                
-            case WSRequestTypePost:{
-                
-                task = [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
-                    
-                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    
-                    [self responseSuccess:success object:responseObject task:task];
-                    
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    
-                    [self responseFailure:failure error:error task:task];
-                }];
-                break;
-            }
-                
-            case WSRequestTypePatch:{
-                
-                task = [manager PATCH:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    
-                    [self responseSuccess:success object:responseObject task:task];
-                    
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    
-                    [self responseFailure:failure error:error task:task];
-                }];
-                break;
-            }
-                
-            case WSRequestTypeDelete:{
-                
-                task = [manager DELETE:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    
-                    [self responseSuccess:success object:responseObject task:task];
-                    
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    
-                    [self responseFailure:failure error:error task:task];
-                }];
-                break;
-            }
-                
-            case WSRequestTypePut:{
-                
-                task = [manager PUT:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    
-                    [self responseSuccess:success object:responseObject task:task];
-                    
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    
-                    [self responseFailure:failure error:error task:task];
-                }];
-                break;
-            }
-        }
-    });
-    
-    [self.requestTasks addObject:task];
-    return task;
-}
-
-- (NSURLSessionDataTask *)uploadImagesWithUrl:(NSString *)url
-                                     fileName:(NSString *)fileName
-                                       params:(NSDictionary *)params
-                                   imageArray:(NSArray *)imageArray
-                                     progress:(WSProgress)progress
-                                      success:(void (^)(id))success
-                                      failure:(void (^)(NSError *))failure
-{
-    __block NSURLSessionDataTask *task = nil;
-    AFHTTPSessionManager *manager = [[WSNetworking sharedInstance] manager];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData){
+    switch (requestType) {
             
-            for (int i = 0; i < imageArray.count; i ++) {
+        case WSRequestTypeGet:{
+            
+            task = [manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
-                NSData *data = UIImageJPEGRepresentation(imageArray[i], 0.8); 
-                NSString *formatFileName = [NSString stringWithFormat:@"%@.jpg",[self getCurrentTime]];
-                
-                [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"%@%d",fileName,i] fileName:formatFileName mimeType:@"image/jpeg"];
-            }
-            
-        } progress:^(NSProgress * _Nonnull uploadProgress) {
-            
-            [self responseProgress:progress uploadProgress:uploadProgress];
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
-            
-            [self responseSuccess:success object:responseObject task:task];
-            
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
-            
-            [self responseFailure:failure error:error task:task];
-        }];
-        
-    });
-    
-    [self.requestTasks addObject:task];
-    return task;
-}
-
-- (NSURLSessionDataTask *)uploadFileWithUrl:(NSString *)url
-                                     params:(NSDictionary *)params
-                                 uploadPath:(NSString *)uploadPath
-                                   progress:(WSProgress)progress
-                                    success:(void (^)(id))success
-                                    failure:(void (^)(NSError *))failure
-{
-    __block NSURLSessionDataTask *task = nil;
-    AFHTTPSessionManager *manager = [[WSNetworking sharedInstance] manager];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSURLRequest *uploadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-        [manager uploadTaskWithRequest:uploadRequest fromFile:[NSURL URLWithString:uploadPath] progress:^(NSProgress * _Nonnull uploadProgress) {
-            [self responseProgress:progress uploadProgress:uploadProgress];
-        } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-            if (error == nil) {
                 [self responseSuccess:success object:responseObject task:task];
-            }else{
-                [self responseFailure:failure error:error task:task];
-            }
-        }];
-        
-    });
-    
-    [self.requestTasks addObject:task];
-    return task;
-
-    
-}
-
-- (NSURLSessionDataTask *)downloadFileWithUrl:(NSString *)url
-                                       params:(NSDictionary *)params
-                                   saveToPath:(NSString *)saveToPath
-                                     progress:(WSProgress)progress
-                                      success:(void (^)(id))success
-                                      failure:(void (^)(NSError *))failure
-{
-    __block NSURLSessionDataTask *task = nil;
-    AFHTTPSessionManager *manager = [[WSNetworking sharedInstance] manager];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-        [manager downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
-            [self responseProgress:progress uploadProgress:downloadProgress];
-        } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-            return [NSURL fileURLWithPath:saveToPath];
-        } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-            if (error == nil) {
                 
-                [self responseSuccess:success object:filePath.absoluteString task:task];
-            }else{
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
                 [self responseFailure:failure error:error task:task];
-            }
-        }];
+            }];
+            break;
+        }
+            
+        case WSRequestTypePost:{
+            
+            task = [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+                
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                [self responseSuccess:success object:responseObject task:task];
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+                [self responseFailure:failure error:error task:task];
+            }];
+            break;
+        }
+            
+        case WSRequestTypePatch:{
+            
+            task = [manager PATCH:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                [self responseSuccess:success object:responseObject task:task];
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+                [self responseFailure:failure error:error task:task];
+            }];
+            break;
+        }
+            
+        case WSRequestTypeDelete:{
+            
+            task = [manager DELETE:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                [self responseSuccess:success object:responseObject task:task];
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+                [self responseFailure:failure error:error task:task];
+            }];
+            break;
+        }
+            
+        case WSRequestTypePut:{
+            
+            task = [manager PUT:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                [self responseSuccess:success object:responseObject task:task];
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+                [self responseFailure:failure error:error task:task];
+            }];
+            break;
+        }
+    }
+    [self.requestTasks addObject:task];
+    return task;
+}
+
+- (NSURLSessionTask *)uploadImagesWithUrl:(NSString *)url
+                                 fileName:(NSString *)fileName
+                                   params:(NSDictionary *)params
+                               imageArray:(NSArray *)imageArray
+                                 progress:(WSProgress)progress
+                                  success:(WSResponseSuccess)success
+                                  failure:(WSResponseFailure)failure
+{
+    NSURLSessionTask *task = nil;
+    AFHTTPSessionManager *manager = [[WSNetworking sharedInstance] manager];
+    task = [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData){
         
-    });
+        for (int i = 0; i < imageArray.count; i ++) {
+            
+            NSData *data = UIImageJPEGRepresentation(imageArray[i], 0.8);
+            NSString *formatFileName = [NSString stringWithFormat:@"%@.jpg",[self getCurrentTime]];
+            
+            [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"%@%d",fileName,i] fileName:formatFileName mimeType:@"image/jpeg"];
+        }
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        [self responseProgress:progress uploadProgress:uploadProgress];
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+        
+        [self responseSuccess:success object:responseObject task:task];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
+        
+        [self responseFailure:failure error:error task:task];
+    }];
     
+    [self.requestTasks addObject:task];
+    return task;
+}
+
+- (NSURLSessionTask *)uploadFileWithUrl:(NSString *)url
+                                 params:(NSDictionary *)params
+                             uploadPath:(NSString *)uploadPath
+                               progress:(WSProgress)progress
+                                success:(WSResponseSuccess)success
+                                failure:(WSResponseFailure)failure
+{
+    NSURLSessionTask *task = nil;
+    AFHTTPSessionManager *manager = [[WSNetworking sharedInstance] manager];
+    NSURLRequest *uploadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    task = [manager uploadTaskWithRequest:uploadRequest fromFile:[NSURL URLWithString:uploadPath] progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        [self responseProgress:progress uploadProgress:uploadProgress];
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        if (error == nil) { 
+            [self responseSuccess:success object:responseObject task:task];
+        }else{
+            [self responseFailure:failure error:error task:task];
+        }
+    }];
+    [task resume];
     [self.requestTasks addObject:task];
     return task;
 
     
 }
 
-- (void)responseSuccess:(void (^)(id responseObject))success object:(id)object task:(NSURLSessionDataTask *)task{
+- (NSURLSessionTask *)downloadFileWithUrl:(NSString *)url
+                                   params:(NSDictionary *)params
+                               saveToPath:(NSString *)saveToPath
+                                 progress:(WSProgress)progress
+                                  success:(WSResponseSuccess)success
+                                  failure:(WSResponseFailure)failure
+{
+    NSURLSessionTask *task = nil;
+    AFHTTPSessionManager *manager = [[WSNetworking sharedInstance] manager];
+    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    task = [manager downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        [self responseProgress:progress uploadProgress:downloadProgress];
+        
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        
+        return [NSURL fileURLWithPath:saveToPath];
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        
+        if (error == nil) {
+            [self responseSuccess:success object:filePath.absoluteString task:task];
+        }else{
+            [self responseFailure:failure error:error task:task];
+        }
+    }];
+    [task resume];
+    [self.requestTasks addObject:task];
+    return task;
+
+    
+}
+
+- (void)responseSuccess:(void (^)(id responseObject))success object:(id)object task:(NSURLSessionTask *)task{
     
     [self.requestTasks removeObject:task];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        
+    
         if (success){
             
             success(object);
@@ -260,7 +243,7 @@
     
 }
 
-- (void)responseFailure:(void(^)(NSError *failure))failure error:(NSError *)error task:(NSURLSessionDataTask *)task{
+- (void)responseFailure:(void(^)(NSError *failure))failure error:(NSError *)error task:(NSURLSessionTask *)task{
     
     [self.requestTasks removeObject:task];
     
@@ -275,8 +258,8 @@
 
 - (void)cancelAllRequest {
     @synchronized(self) {
-        [self.requestTasks enumerateObjectsUsingBlock:^(NSURLSessionDataTask * _Nonnull task, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([task isKindOfClass:[NSURLSessionDataTask class]]) {
+        [self.requestTasks enumerateObjectsUsingBlock:^(NSURLSessionTask * _Nonnull task, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([task isKindOfClass:[NSURLSessionTask class]]) {
                 [task cancel];
             }
         }];
@@ -291,8 +274,8 @@
     }
     
     @synchronized(self) {
-        [self.requestTasks enumerateObjectsUsingBlock:^(NSURLSessionDataTask * _Nonnull task, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([task isKindOfClass:[NSURLSessionDataTask class]]
+        [self.requestTasks enumerateObjectsUsingBlock:^(NSURLSessionTask * _Nonnull task, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([task isKindOfClass:[NSURLSessionTask class]]
                 && [task.currentRequest.URL.absoluteString hasSuffix:url]) {
                 [task cancel];
                 [self.requestTasks removeObject:task];

@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ 所有的网络请求都会新开子线程，成功，失败及进度回调都在主线程
+
+ */
 typedef NS_ENUM(NSUInteger, WSRequestType) {
     WSRequestTypeGet         = 1, // get请求
     WSRequestTypePost        = 2, // post请求
@@ -18,13 +22,11 @@ typedef NS_ENUM(NSUInteger, WSRequestType) {
 
 typedef NS_ENUM(NSUInteger, WSResponseType) {
     WSResponseTypeSuccess     = 1, // 请求成功
-    WSResponseTypeNoNetwork   = 2, // 无网络
-    WSResponseTypeNoData      = 3, // 无数据
-    WSResponseTypeNoMoreData  = 4, // 无更多数据
+    WSResponseTypeNoData      = 2, // 无数据
+    WSResponseTypeNoMoreData  = 3, // 无更多数据
+    WSResponseTypeNoNetwork   = 4, // 无网络
     WSResponseTypeServerError = 5, // 服务器错误
 };
-
-
 
 typedef NS_ENUM(NSInteger, WSNetworkStatus) {
     WSNetworkStatusUnknown          = -1,//未知网络
@@ -34,6 +36,8 @@ typedef NS_ENUM(NSInteger, WSNetworkStatus) {
 };
 
 typedef void (^WSProgress)(int64_t completedUnitCount, int64_t totalUnitCount);
+typedef void(^WSResponseSuccess)(id responseObject);
+typedef void(^WSResponseFailure)(NSError *error);
 
 typedef void (^OperationBlock)(WSResponseType responseType, BOOL result, NSString *message);
 typedef void (^DataBlock)(WSResponseType responseType, id data, NSString *message);
@@ -53,11 +57,11 @@ typedef void (^StatusBlock)(WSResponseType responseType, NSInteger status, NSStr
  @param failure 失败回调
  @return NSURLSessionDataTask
  */
-- (NSURLSessionDataTask *)requestWithRequestType:(WSRequestType)requestType
-                                             url:(NSString *)url
-                                          params:(NSDictionary *)params
-                                         success:(void (^)(id responseObject))success
-                                         failure:(void (^)(NSError *error))failure;
+- (NSURLSessionTask *)requestWithRequestType:(WSRequestType)requestType
+                                         url:(NSString *)url
+                                      params:(NSDictionary *)params
+                                     success:(WSResponseSuccess)success
+                                     failure:(WSResponseFailure)failure;
 
 
 /**
@@ -72,20 +76,32 @@ typedef void (^StatusBlock)(WSResponseType responseType, NSInteger status, NSStr
  @param failure 失败回调
  @return NSURLSessionDataTask
  */
-- (NSURLSessionDataTask *)uploadImagesWithUrl:(NSString *)url
-                                     fileName:(NSString *)fileName
-                                       params:(NSDictionary *)params
-                                   imageArray:(NSArray *)imageArray
-                                     progress:(WSProgress)progress
-                                      success:(void (^)(id responseObject))success
-                                      failure:(void (^)(NSError *error))failure;
+- (NSURLSessionTask *)uploadImagesWithUrl:(NSString *)url
+                                 fileName:(NSString *)fileName
+                                   params:(NSDictionary *)params
+                               imageArray:(NSArray *)imageArray
+                                 progress:(WSProgress)progress
+                                  success:(WSResponseSuccess)success
+                                  failure:(WSResponseFailure)failure;
 
-- (NSURLSessionDataTask *)uploadFileWithUrl:(NSString *)url
-                                     params:(NSDictionary *)params
-                                 uploadPath:(NSString *)uploadPath
-                                   progress:(WSProgress)progress
-                                    success:(void (^)(id responseObject))success
-                                    failure:(void (^)(NSError *error))failure;
+
+/**
+ 上传文件
+
+ @param url url
+ @param params 参数
+ @param uploadPath 待上传文件路径
+ @param progress 上传进度
+ @param success 成功回调
+ @param failure 失败回调
+ @return NSURLSessionDataTask
+ */
+- (NSURLSessionTask *)uploadFileWithUrl:(NSString *)url
+                                 params:(NSDictionary *)params
+                             uploadPath:(NSString *)uploadPath
+                               progress:(WSProgress)progress
+                                success:(WSResponseSuccess)success
+                                failure:(WSResponseFailure)failure;
 
 
 /**
@@ -99,12 +115,12 @@ typedef void (^StatusBlock)(WSResponseType responseType, NSInteger status, NSStr
  @param failure 失败回调
  @return NSURLSessionDataTask
  */
-- (NSURLSessionDataTask *)downloadFileWithUrl:(NSString *)url
-                                       params:(NSDictionary *)params
-                                   saveToPath:(NSString *)saveToPath
-                                     progress:(WSProgress)progress
-                                      success:(void (^)(id responseObject))success
-                                      failure:(void (^)(NSError *error))failure;
+- (NSURLSessionTask *)downloadFileWithUrl:(NSString *)url
+                                   params:(NSDictionary *)params
+                               saveToPath:(NSString *)saveToPath
+                                 progress:(WSProgress)progress
+                                  success:(WSResponseSuccess)success
+                                  failure:(WSResponseFailure)failure;
 /**
  *    取消所有请求
  */
